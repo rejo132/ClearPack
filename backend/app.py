@@ -17,7 +17,7 @@ def create_app() -> Flask:
     migrate.init_app(app, db)
 
     # Import models so Alembic sees them
-    from models import *  # noqa: F401,F403
+    import models  # noqa: F401
 
     # Register blueprints
     from routes.auth_routes import auth_bp
