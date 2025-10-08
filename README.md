@@ -16,6 +16,8 @@ pip install -r requirements.txt
 ```
 3. Initialize DB (SQL):
 ```
+export DATABASE_URL=postgresql+psycopg2://postgres:postgres@localhost:5432/jkuat_tracker
+psql "postgresql://postgres:postgres@localhost:5432/postgres" -c "CREATE DATABASE jkuat_tracker;"
 psql "$DATABASE_URL" -f ../database/schema.sql
 psql "$DATABASE_URL" -f ../database/seed.sql
 ```
