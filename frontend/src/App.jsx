@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Login from "./pages/Login";
-import Signup from "./pages/Signup";
+import Signup from "./pages/signup";
 import Dashboard from "./pages/Dashboard";
 import AddMarks from "./pages/AddMarks";
 import GPAStatus from "./pages/GPAStatus";
