@@ -16,10 +16,18 @@ pip install -r requirements.txt
 ```
 3. Initialize DB (SQL):
 ```
-export DATABASE_URL=postgresql+psycopg2://postgres:Omena_%400337@localhost:5432/jkuat_tracker
-psql "postgresql://postgres:postgres@localhost:5432/postgres" -c "CREATE DATABASE jkuat_tracker;"
+# 1️⃣ Set up your database connection URL
+export DATABASE_URL="postgresql://postgres:Omena_@0337@localhost:5432/jkuat_tracker"
+
+# 2️⃣ Create the database (run only once — it will error if it already exists, that’s fine)
+psql "postgresql://postgres:Omena_@0337@localhost:5432/postgres" -c "CREATE DATABASE jkuat_tracker;"
+
+# 3️⃣ Initialize your schema
 psql "$DATABASE_URL" -f ../database/schema.sql
+
+# 4️⃣ Seed initial data
 psql "$DATABASE_URL" -f ../database/seed.sql
+
 ```
 4. Run API:
 ```
