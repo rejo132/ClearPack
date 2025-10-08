@@ -16,6 +16,6 @@ export async function login(email, password) {
 export async function signup(payload) {
   // payload: {admission_number, full_name, email, phone, password}
   const res = await api.post("/auth/signup", payload);
-  saveToken(res.data.token);
+  // backend returns { id } on success; do not save token here
   return res.data;
 }

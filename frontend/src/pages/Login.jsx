@@ -26,7 +26,7 @@ export default function Login() {
       navigate("/dashboard");
     } catch (error) {
       console.error(error);
-      setErr(error?.response?.data?.message || "Invalid credentials");
+      setErr(error?.response?.data?.error || error?.response?.data?.message || "Invalid credentials");
     }
   };
 

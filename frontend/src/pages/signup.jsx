@@ -32,10 +32,10 @@ export default function Signup() {
     setErr("");
     try {
       await signup(values);
-      navigate("/dashboard");
+      navigate("/");
     } catch (error) {
       console.error(error);
-      setErr(error?.response?.data?.message || "Signup failed");
+      setErr(error?.response?.data?.error || error?.response?.data?.message || "Signup failed");
     }
   };
 
