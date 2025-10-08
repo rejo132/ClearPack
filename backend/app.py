@@ -30,6 +30,10 @@ def create_app() -> Flask:
     app.register_blueprint(grade_bp, url_prefix="/api/grades")
     app.register_blueprint(payment_bp, url_prefix="/api/payments")
 
+    @app.get("/")
+    def root():
+        return {"message": "ClearPack API running", "endpoints": ["/health", "/api/auth", "/api/students", "/api/grades", "/api/payments"]}
+
     @app.get("/health")
     def health_check():
         return {"status": "ok"}
