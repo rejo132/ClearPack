@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import api from "../services/api";
+import GlassCard from "../components/GlassCard";
 
 export default function AddMarks() {
   const [rows, setRows] = useState([{ course_code: "", marks: "" }]);
@@ -28,13 +29,13 @@ export default function AddMarks() {
   };
 
   return (
-    <div className="bg-white rounded shadow p-6 max-w-xl">
+    <GlassCard className="p-6 max-w-xl">
       <h2 className="text-lg font-semibold mb-4">Add / Upload Marks (MVP)</h2>
       <form onSubmit={submit} className="space-y-3">
         {rows.map((r, i) => (
           <div key={i} className="flex gap-2">
-            <input required placeholder="Course code" value={r.course_code} onChange={update(i, "course_code")} className="flex-1 border px-2 py-2 rounded" />
-            <input required placeholder="Marks (0-100)" value={r.marks} onChange={update(i, "marks")} className="w-28 border px-2 py-2 rounded" />
+            <input required placeholder="Course code" value={r.course_code} onChange={update(i, "course_code")} className="flex-1 border px-2 py-2 rounded dark:bg-slate-800" />
+            <input required placeholder="Marks (0-100)" value={r.marks} onChange={update(i, "marks")} className="w-28 border px-2 py-2 rounded dark:bg-slate-800" />
           </div>
         ))}
         <div className="flex gap-2">
@@ -44,6 +45,6 @@ export default function AddMarks() {
           </button>
         </div>
       </form>
-    </div>
+    </GlassCard>
   );
 }

@@ -3,5 +3,11 @@
 @tailwind utilities;
 
 body {
-  @apply bg-gray-50 text-gray-900;
+  @apply bg-gray-50 text-gray-900 dark:bg-slate-950 dark:text-slate-100;
+}
+
+.app-gradient {
+  background: radial-gradient(1200px 600px at 10% -10%, rgba(16, 185, 129, 0.25), transparent 60%),
+              radial-gradient(800px 400px at 110% -20%, rgba(59, 130, 246, 0.18), transparent 60%),
+              linear-gradient(180deg, #061a2b 0%, #0b2740 40%, #0f172a 100%);
 }

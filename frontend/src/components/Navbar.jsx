@@ -1,6 +1,8 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { clearToken, getToken } from "../utils/tokenStorage";
+import ThemeToggle from "./ThemeToggle";
+import { GraduationCap } from "lucide-react";
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -12,10 +14,11 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-emerald-800 text-white">
-      <div className="container flex items-center justify-between py-3">
+    <nav className="bg-emerald-900 text-white">
+      <div className="container flex items-center justify-between py-3 px-3">
         <div className="flex items-center gap-3">
-          <div className="text-lg font-semibold">JKUAT Tracker</div>
+          <GraduationCap size={20} />
+          <div className="text-lg font-semibold tracking-tight">JKUAT Tracker</div>
           <span className="text-sm opacity-80">Marks & Graduation</span>
         </div>
 
@@ -25,9 +28,10 @@ export default function Navbar() {
               <Link className="text-sm hover:underline" to="/dashboard">Dashboard</Link>
               <Link className="text-sm hover:underline" to="/gpa">GPA</Link>
               <Link className="text-sm hover:underline" to="/payment">Payments</Link>
+              <ThemeToggle />
               <button
                 onClick={handleLogout}
-                className="ml-3 px-3 py-1 bg-red-600 rounded text-sm"
+                className="ml-1 px-3 py-1 bg-red-600 rounded text-sm"
               >
                 Logout
               </button>
@@ -36,6 +40,7 @@ export default function Navbar() {
             <>
               <Link className="text-sm hover:underline" to="/">Login</Link>
               <Link className="text-sm hover:underline" to="/signup">Signup</Link>
+              <ThemeToggle />
             </>
           )}
         </div>

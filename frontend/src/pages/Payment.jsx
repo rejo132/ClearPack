@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import api from "../services/api";
+import GlassCard from "../components/GlassCard";
 
 export default function Payment() {
   const [amount, setAmount] = useState("");
@@ -22,12 +23,12 @@ export default function Payment() {
   };
 
   return (
-    <div className="max-w-md mx-auto bg-white p-6 rounded shadow">
+    <GlassCard className="max-w-md mx-auto p-6">
       <h2 className="text-lg font-semibold mb-4">Payments</h2>
       <form onSubmit={pay} className="space-y-3">
-        <input type="number" min="1" required value={amount} onChange={(e)=>setAmount(e.target.value)} className="w-full border px-3 py-2 rounded" placeholder="Amount (KES)" />
+        <input type="number" min="1" required value={amount} onChange={(e)=>setAmount(e.target.value)} className="w-full border px-3 py-2 rounded dark:bg-slate-800" placeholder="Amount (KES)" />
         <button disabled={loading} className="w-full bg-emerald-700 text-white py-2 rounded">{loading ? "Processing..." : "Pay with M-Pesa"}</button>
       </form>
-    </div>
+    </GlassCard>
   );
 }
